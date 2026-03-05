@@ -74,6 +74,11 @@ pokemon_db = [{"name":"Bulbasaur"},
               {"name":"Charizard"},
               {"name":"Togepi"}]
 
+@app.get("/pokemonbattle/{id1}{id2}")
+def pokemon_battle(id1=int, id2=int): 
+    pk1 = None
+    pk2 = None
+
 @app.get("/pokemonbyid/{id}")
 def show_pokemon_by_id(id: int):
     for p in new_pokemon:
