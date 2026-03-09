@@ -74,6 +74,25 @@ pokemon_db = [{"name":"Bulbasaur"},
               {"name":"Charizard"},
               {"name":"Togepi"}]
 
+@app.get("/pokemonorderedby/{campo}")
+def pokemon_ordered_by(campo: str):
+
+    if campo == "nombre":
+        return sorted(new_pokemon, key=lambda p: p.nombre)
+
+    elif campo == "vida":
+        return sorted(new_pokemon, key=lambda p: p.vida)
+
+    elif campo == "ataque":
+        return sorted(new_pokemon, key=lambda p: p.ataque)
+
+    elif campo == "tipo":
+        return sorted(new_pokemon, key=lambda p: p.tipo)
+
+    else:
+        return {"mensaje": "campo no válido"}
+        
+
 @app.get("/pokemonbattle/{id1}/{id2}")
 def pokemon_battle(id1: int, id2: int):
     pk1 = None
